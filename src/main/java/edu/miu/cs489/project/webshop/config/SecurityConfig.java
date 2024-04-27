@@ -1,6 +1,7 @@
-package edu.miu.cs489.project.webshop.security.config;
-import edu.miu.cs489.project.webshop.security.filter.JWTAuthFilter;
-import edu.miu.cs489.project.webshop.security.service.MyUserDetailsService;
+package edu.miu.cs489.project.webshop.config;
+import edu.miu.cs489.project.webshop.filter.JWTAuthFilter;
+import edu.miu.cs489.project.webshop.service.MyUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,12 +19,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+    @Autowired
     private MyUserDetailsService myUserDetailsService;
+    @Autowired
     private JWTAuthFilter jwtAuthFilter;
-    public SecurityConfig(MyUserDetailsService myUserDetailsService, JWTAuthFilter jwtAuthFilter) {
-        this.myUserDetailsService = myUserDetailsService;
-        this.jwtAuthFilter = jwtAuthFilter;
-    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         System.out.println("filterChain is called !");

@@ -1,9 +1,8 @@
 package edu.miu.cs489.project.webshop.controller;
 
-import edu.miu.cs489.project.webshop.dto.UserAuthRequest;
 import edu.miu.cs489.project.webshop.enums.RoleEnum;
 import edu.miu.cs489.project.webshop.model.User;
-import edu.miu.cs489.project.webshop.security.util.JWTMgmtUtilityService;
+import edu.miu.cs489.project.webshop.service.util.JWTMgmtUtilityService;
 import edu.miu.cs489.project.webshop.service.UserService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
@@ -12,13 +11,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

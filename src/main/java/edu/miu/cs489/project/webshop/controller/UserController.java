@@ -2,9 +2,8 @@ package edu.miu.cs489.project.webshop.controller;
 
 import edu.miu.cs489.project.webshop.dto.UserAuthRequest;
 import edu.miu.cs489.project.webshop.dto.UserAuthResponse;
-import edu.miu.cs489.project.webshop.dto.UserSignUpRequest;
 import edu.miu.cs489.project.webshop.model.User;
-import edu.miu.cs489.project.webshop.security.util.JWTMgmtUtilityService;
+import edu.miu.cs489.project.webshop.service.util.JWTMgmtUtilityService;
 import edu.miu.cs489.project.webshop.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

@@ -1,5 +1,6 @@
-package edu.miu.cs489.project.webshop.security.util;
+package edu.miu.cs489.project.webshop.service.util;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-@Service
+@Component
 public class JWTMgmtUtilityService {
     public static final String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
     //SESSION_ID = "B0C31F74ADD597A2658EA9C6B492E045";

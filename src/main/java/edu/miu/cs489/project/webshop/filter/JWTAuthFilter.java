@@ -1,10 +1,11 @@
-package edu.miu.cs489.project.webshop.security.filter;
-import edu.miu.cs489.project.webshop.security.service.MyUserDetailsService;
-import edu.miu.cs489.project.webshop.security.util.JWTMgmtUtilityService;
+package edu.miu.cs489.project.webshop.filter;
+import edu.miu.cs489.project.webshop.service.MyUserDetailsService;
+import edu.miu.cs489.project.webshop.service.util.JWTMgmtUtilityService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,13 +16,10 @@ import java.io.IOException;
 
 @Component
 public class JWTAuthFilter extends OncePerRequestFilter {
+    @Autowired
     private JWTMgmtUtilityService jwtMgmtUtilityService;
+    @Autowired
     private MyUserDetailsService myUserDetailsService;
-
-    public JWTAuthFilter(JWTMgmtUtilityService jwtMgmtUtilityService, MyUserDetailsService myUserDetailsService) {
-        this.jwtMgmtUtilityService = jwtMgmtUtilityService;
-        this.myUserDetailsService = myUserDetailsService;
-    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

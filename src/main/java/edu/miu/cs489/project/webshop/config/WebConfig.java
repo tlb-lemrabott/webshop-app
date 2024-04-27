@@ -1,4 +1,4 @@
-package edu.miu.cs489.project.webshop.security.config;
+package edu.miu.cs489.project.webshop.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

@@ -1,13 +1,16 @@
-package edu.miu.cs489.project.webshop.security.service;
+package edu.miu.cs489.project.webshop.service;
 import edu.miu.cs489.project.webshop.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public class MyUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
+    @Autowired
     public MyUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

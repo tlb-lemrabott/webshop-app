@@ -1,12 +1,14 @@
 package edu.miu.cs489.project.webshop.controller;
 
 import edu.miu.cs489.project.webshop.model.Product;
+import edu.miu.cs489.project.webshop.service.util.JWTMgmtUtilityService;
 import edu.miu.cs489.project.webshop.service.ProductService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -29,6 +31,8 @@ import static org.mockito.Mockito.verify;
 class ProductControllerUnitTest {
     @InjectMocks
     private ProductController productController;
+    @Mock
+    private JWTMgmtUtilityService jwtMgmtUtilityService;
     @MockBean
     private ProductService productService;
     @BeforeEach

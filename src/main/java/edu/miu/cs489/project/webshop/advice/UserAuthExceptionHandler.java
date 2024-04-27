@@ -1,4 +1,4 @@
-package edu.miu.cs489.project.webshop.security.advice;
+package edu.miu.cs489.project.webshop.advice;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
