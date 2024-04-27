@@ -28,6 +28,33 @@ jobs:
       - name: Build with Maven
         run: mvn install -DskipTests
 
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build JAR
+        run: mvn install -DskipTests
+
+      - name: Transfer JAR to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: './target/webshop-0.0.1-SNAPSHOT.jar'
+          target: '~/dev-env/webshop-0.0.1-SNAPSHOT.jar'
+
+
+
+
+
         #env:
         #  AZURE_WEBAPP_NAME: ads-cli-app
         #  AZURE_WEBAPP_PACKAGE_PATH: "./publish"
