@@ -11,17 +11,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "reviews")
-public class Review {
+@Table(name = "sub_categories")
+public class SubCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer reviewId;
-    private int rate;
-    private String comment;
-    @ManyToOne
-    @JoinColumn(name = "user_fk")
-    private User user;
-    @ManyToOne
-    @JoinColumn(name = "product_fk")
-    private Product product;
+    private Integer subCategoryId;
+    private String name;
+    @ManyToOne()
+    @JoinColumn(name = "category_fk")
+    private Category parentCategory;
 }

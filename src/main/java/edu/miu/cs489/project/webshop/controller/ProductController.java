@@ -4,6 +4,7 @@ import edu.miu.cs489.project.webshop.model.Product;
 import edu.miu.cs489.project.webshop.service.ProductService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,9 +35,12 @@ public class ProductController {
     }
     @GetMapping("/list/{productId}")
     public ResponseEntity<Product> getProductById(@PathVariable Integer productId) {
-        Optional<Product> productOptional = productService.getProductById(productId);
-        return productOptional.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        try {
+            Product product = productService.getProductById(productId);
+            return new ResponseEntity<>(product, HttpStatusCode.valueOf(200));
+        }catch (Exception ex){
+            throw ex;
+        }
     }
     @PutMapping("/update/{productId}")
     public ResponseEntity<Product> updateProduct(@PathVariable Integer productId, @RequestBody Product updatedProduct) {

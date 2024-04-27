@@ -16,5 +16,12 @@ public class OrderLine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderLineId;
+    private int quantity;
+    @ManyToOne
+    @JoinColumn(name = "order_fk")
+    private Order order;
+    @ManyToOne
+    @JoinColumn(name = "product_fk")
+    private Product product;
 
 }

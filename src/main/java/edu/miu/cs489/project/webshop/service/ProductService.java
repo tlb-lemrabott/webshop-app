@@ -2,6 +2,7 @@ package edu.miu.cs489.project.webshop.service;
 
 import edu.miu.cs489.project.webshop.model.Product;
 import edu.miu.cs489.project.webshop.repository.ProductRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,11 +20,12 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
-    public Optional<Product> getProductById(Integer id) {
-        return productRepository.findById(id);
+    public Product getProductById(Integer productId) {
+        return productRepository.findById(productId)
+                .orElseThrow(() -> new IllegalArgumentException("Product not found with productId: " + productId));
     }
-    public Product updateProduct(Integer id, Product updatedProduct) {
-        Optional<Product> existingProductOptional = productRepository.findById(id);
+    public Product updateProduct(Integer productId, Product updatedProduct) {
+        Optional<Product> existingProductOptional = productRepository.findById(productId);
         if (existingProductOptional.isPresent()) {
             Product existingProduct = existingProductOptional.get();
             existingProduct.setName(updatedProduct.getName());
@@ -37,8 +39,8 @@ public class ProductService {
         }
         return null;
     }
-    public void deleteProduct(Integer id) {
-        productRepository.deleteById(id);
+    public void deleteProduct(Integer productId) {
+        productRepository.deleteById(productId);
     }
 
 

@@ -53,7 +53,7 @@ public class UserController {
         return ResponseEntity.ok(userAuthResponse);
     }
     @PostMapping(path = "/register")
-    public ResponseEntity<User> authenticateUser(@Valid @RequestBody User user) {
+    public ResponseEntity<User> registerNewUser(@Valid @RequestBody User user) {
         try {
             System.out.println("register is called !");
             User registeredUser = this.userService.registerNewUser(user);

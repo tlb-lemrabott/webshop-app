@@ -19,7 +19,11 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer oderId;
-    @OneToMany
+    private LocalDateTime shippingDate;
+    @ManyToOne
+    @JoinColumn(name = "shipping_address_fk")
+    private Address shippingAddress;
+    @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLines;
 
 

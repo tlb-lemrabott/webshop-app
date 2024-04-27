@@ -23,18 +23,27 @@ public class Product {
     private double price;
     private int availableQuantity;
     private String description;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "products_categories",
-            joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "productId")},
-            inverseJoinColumns = {@JoinColumn(name = "category_id", referencedColumnName = "categoryId")}
-    )
-    private List<Category> category;
-    @OneToMany
+    @ManyToOne()
+    @JoinColumn(name = "category_fk")
+    private Category category;
+    @OneToMany(mappedBy = "product")
     private List<Review> reviews;
-    @OneToMany
+    @OneToMany(mappedBy = "product")
     private List<CartItem> cartItems;
-    @OneToMany
+    @OneToMany(mappedBy = "product")
     private List<OrderLine> orderLines;
+
+    public Product(Integer productId, String name, String owner, String originCountry, double price, int availableQuantity, String description) {
+        this.productId = productId;
+        this.name = name;
+        this.owner = owner;
+        this.originCountry = originCountry;
+        this.price = price;
+        this.availableQuantity = availableQuantity;
+        this.description = description;
+    }
+
+
+
 
 }

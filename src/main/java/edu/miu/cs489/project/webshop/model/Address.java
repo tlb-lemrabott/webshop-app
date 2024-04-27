@@ -6,22 +6,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "reviews")
-public class Review {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer reviewId;
-    private int rate;
-    private String comment;
-    @ManyToOne
-    @JoinColumn(name = "user_fk")
-    private User user;
-    @ManyToOne
-    @JoinColumn(name = "product_fk")
-    private Product product;
+    private Integer addressId;
+    private String street;
+    private String city;
+    private String state;
+    private String apt;
+    private String zipCode;
+    @OneToMany(mappedBy = "shippingAddress")
+    private List<Order> shippingOrders;
 }

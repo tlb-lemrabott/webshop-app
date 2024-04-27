@@ -19,6 +19,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer categoryId;
     private String name;
-    @ManyToMany
+    @OneToMany(mappedBy = "category")
     private List<Product> products;
+    @OneToMany(mappedBy = "parentCategory")
+    private List<SubCategory> subCategories;
+
 }

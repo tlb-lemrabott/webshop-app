@@ -21,6 +21,6 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer cartId;
     private LocalDateTime creationDate;
-    @OneToMany
+    @OneToMany(mappedBy = "shoppingCart")
     private List<CartItem> cartItems;
 }
