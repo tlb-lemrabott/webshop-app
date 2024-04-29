@@ -2,7 +2,7 @@
 
 **Functional Requirements:**
 
-1. **User Management:**
+1. User Management:
    - Users should be able to register, login, and manage their accounts.
    - User roles such as admin and customer(regular user) should be supported.
 
@@ -57,7 +57,7 @@
 4. **Shopping Cart Management:**
    - The application allow users to easily manage their shopping carts, including adding, updating, and removing items.
 
-5- **Order Tracking:**
+5. **Order Tracking:**
    - Provide order tracking functionality for users to monitor the status of their orders.
 
 6. **Secure Payment Integration:**
