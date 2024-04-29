@@ -1,4 +1,4 @@
-# webshop application system:
+# webshop application system
 
 **Functional Requirements:**
 
