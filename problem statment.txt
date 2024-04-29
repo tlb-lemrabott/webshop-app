@@ -1,0 +1,29 @@
+Webshop problem description:
+
+The company WSC (We Sell Cheap) wants to sell products over the Internet. So we need to develop a webshop where customers can buy products online. WSC sells various products, from books to computers to toilet paper.
+WSC now offers their products through a catalog that they send to their customers every three months. They hope that with an online shop they can increase the number of customers and the number of orders.
+It is important that the webshop is very user friendly. It should be easy to find products or browse through the different product categories. 
+
+For example, it should be possible to first select the category "books" and then we should see all subcategories of books We can then select the subcategory "computer books", and then should see all subcategories of computer books. 
+
+a customer or user should have the ability to signup and signin in the system, serach for products by name, category, price, by country who made it. Then he should have the ability to add it to the shopping cart.
+
+When custormer proceed to checkout he has to view the content of the shopping cart, means the list of products in his shoping card with their details, delivery address, estimated time for delivery, unit price, shiping price, total price, tax. then he place or pay the shoping card order.
+
+When a customer places an order, the system will automatically send an order confirmation by email to the customer. 
+
+The webshop system should store the customer data that customers have to enter their personal data and payment information only once. 
+
+Orders can be paid by credit card option or cash option. The shop uses an external credit card verification system to check the credit card information. 
+
+It should be possible for customers to place a "product review" for a product that they bought. These product reviews are shown in the detailed description of a particular product.
+
+The webshop application is managed by WSC system administrator who can add, remove, update and get product list.
+
+Role: 
+System root: can create, update, allow, or block a system administrators. 
+System administrator: can do CRUD operation and mangement of the store products.
+Customer or user: can view list of products, can filter product by name, price, category or other filter, add products to his shoping card, and buy products.
+
+
+Finally, the application can generate reports for management support.
